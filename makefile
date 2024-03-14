@@ -1,19 +1,19 @@
 all: clean executable valgrind
 no-valgrind: clean executable execute
 
-executable: list.o aux_functions.o functions.o p3.o
-	gcc -Wall -o p3 list.o aux_functions.o functions.o p3.o
+executable: list.o aux_functions.o functions.o main.o
+	gcc -Wall -o p3 list.o aux_functions.o functions.o main.o
 
 %.o: %.c
 	gcc -Wall -Wno-stringop-overflow -c -g $<
 
 execute:
-	./p3
+	./main
 
 valgrind:
 	mkdir valgrind
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind/valgrind-report.txt ./p3
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind/valgrind-report.txt ./main
 
 clean:
-	rm -f *.o *.txt p3
+	rm -f *.o *.txt main
 	if [ -d "valgrind" ]; then rm -r valgrind; fi

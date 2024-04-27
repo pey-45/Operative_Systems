@@ -31,8 +31,7 @@
 
 typedef char tItemL[MAX_PROMPT];
 typedef struct tNode* tPosL;
-struct tNode 
-{
+struct tNode {
     tItemL data;
     tPosL next;
 };

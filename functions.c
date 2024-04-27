@@ -18,21 +18,22 @@ static int staticvar_init1 = 0;
 static int staticvar_init2 = 0;
 static int staticvar_init3 = 0;
 
-void f_authors(char ** command)
-{
-    if (command[1] && !strcmp(command[1], "-l")) //si tiene de argumento -l imprime los logins
+void f_authors(char ** command) {
+    if (command[1] && !strcmp(command[1], "-l")) {
         printf("pablo.manzanares.lopez@udc.es\nalejandro.rodriguezf@udc.es\n");
-    else if (command[1] && !strcmp(command[1], "-n")) //si tiene de argumento -n imprime los nombres
+    } else if (command[1] && !strcmp(command[1], "-n")) {
         printf("Pablo Manzanares Lopez\nAlejandro Rodriguez Franco\n");
-    else //en cualquier otro caso imprime los nombres y logins
+    } else { 
         printf("Pablo Manzanares Lopez: pablo.manzanares.lopez@udc.es\nAlejandro Rodriguez Franco: alejandro.rodriguezf@udc.es\n");
+    }
 }
 
 void f_pid(char ** command)
 {
-    //si hay argumentos y ese argumento es -p imprime el pid del padre del shell, en cualquier otro caso imprime el pid del shell
     bool p = command[1] && !strcmp(command[1], "-p");
     printf("Pid del %sshell: %ld\n", p? "padre del ":"", p? (long)getppid():(long)getpid());
+
+    if (command[1])
 }
 
 void f_chdir(char ** command)

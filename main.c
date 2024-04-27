@@ -12,10 +12,8 @@ int main(int argc, char ** argv, char **envp)
 	struct utsname unameData;
 	uname(&unameData);
 
-
 	//obtencion de nombre de usuario y nodename para formato de input
-	if (!username)
-	{
+	if (username == NULL) {
     	perror("No se pudo obtener el nombre de usuario\n");
 		f_quit(&command_history, &open_files, &memory, &shared_memory, &mmap_memory, &bg_proc);
 	}
@@ -31,11 +29,9 @@ int main(int argc, char ** argv, char **envp)
 	insertItem("Descriptor: 1 -> salida estandar O_RDWR", NULL, &open_files);
 	insertItem("Descriptor: 2 -> error estandar O_RDWR", NULL, &open_files);
 
-	for(ever)
-	{
+	for(ever) {
 		//obtencion de directorio actual para formato de input
-		if (!getcwd(dir, MAX_PROMPT))
-		{
+		if (getcwd(dir, MAX_PROMPT) == NULL) {
 			perror("No se pudo obtener el directorio actual.\n");
 			f_quit(&command_history, &open_files, &memory, &shared_memory, &mmap_memory, &bg_proc);
 		}

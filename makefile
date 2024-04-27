@@ -12,7 +12,7 @@ execute:
 
 valgrind:
 	mkdir valgrind
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind/valgrind-report.txt ./main
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./main
 
 clean:
 	rm -f *.o *.txt main

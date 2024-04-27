@@ -33,7 +33,7 @@ void f_pid(char ** command)
     bool p = command[1] && !strcmp(command[1], "-p");
     printf("Pid del %sshell: %ld\n", p? "padre del ":"", p? (long)getppid():(long)getpid());
 
-    if (command[1])
+    if (command[1]) {}
 }
 
 void f_chdir(char ** command)

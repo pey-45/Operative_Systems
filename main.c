@@ -32,7 +32,7 @@ int main(int argc, char ** argv, char **envp)
 	for(ever) {
 		//obtencion de directorio actual para formato de input
 		if (getcwd(dir, MAX_PROMPT) == NULL) {
-			perror("No se pudo obtener el directorio actual.\n");
+			perror("could not get current directory\n");
 			f_quit(&command_history, &open_files, &memory, &shared_memory, &mmap_memory, &bg_proc);
 		}
 
